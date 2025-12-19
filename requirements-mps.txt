@@ -1,0 +1,42 @@
+# requirements-mps.txt
+# Requirements for MPS (Apple Silicon) support
+# Use this instead of requirements.txt for local macOS development
+
+# Core Web Framework
+fastapi
+uvicorn[standard]
+
+# Machine Learning & Audio
+torch
+torchaudio
+numpy
+soundfile  # Requires libsndfile system library
+
+# Dia TTS with MPS support (PR #288)
+nari-tts @ git+https://github.com/gruckion/dia.git@refs/pull/288/head
+
+# HuggingFace
+huggingface_hub
+descript-audio-codec
+safetensors
+
+# Whisper for transcription
+openai-whisper
+
+# Configuration & Utilities
+pydantic
+python-dotenv
+Jinja2
+python-multipart
+requests
+PyYAML
+tqdm
+
+# Audio Post-processing
+pydub
+praat-parselmouth
+librosa
+hf-transfer
+
+# GCS Support
+google-cloud-storage
