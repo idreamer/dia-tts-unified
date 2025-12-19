@@ -1,5 +1,4 @@
 # requirements.txt
-
 # Core Web Framework
 fastapi
 uvicorn[standard]
@@ -8,23 +7,34 @@ uvicorn[standard]
 torch
 torchaudio
 numpy
-soundfile # Requires libsndfile system library (e.g., sudo apt-get install libsndfile1 on Debian/Ubuntu)
+soundfile  # Requires libsndfile system library (e.g., sudo apt-get install libsndfile1 on Debian/Ubuntu)
+
+# HuggingFace Hub & Dia dependencies
 huggingface_hub
 descript-audio-codec
 safetensors
+
+# Dia TTS with MPS support (PR #288 from gruckion)
+# This provides full Apple Silicon MPS acceleration (44x faster than CPU)
+nari-tts @ git+https://github.com/gruckion/dia.git@refs/pull/288/head
+
+# Whisper for transcription
 openai-whisper
 
 # Configuration & Utilities
 pydantic
-python-dotenv # Used ONLY for initial config seeding if config.yaml missing
+python-dotenv  # Used ONLY for initial config seeding if config.yaml missing
 Jinja2
-python-multipart # For file uploads
-requests # For health checks or other potential uses
-PyYAML # For parsing presets.yaml AND primary config.yaml
+python-multipart  # For file uploads
+requests  # For health checks or other potential uses
+PyYAML  # For parsing presets.yaml AND primary config.yaml
 tqdm
 
 # Audio Post-processing
 pydub
-praat-parselmouth # For unvoiced segment removal
-librosa # for changes to sampling
+praat-parselmouth  # For unvoiced segment removal
+librosa  # for changes to sampling
 hf-transfer
+
+# GCS Support for predefined voices
+google-cloud-storage
